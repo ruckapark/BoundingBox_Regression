@@ -3,6 +3,8 @@
 > This is part of a project for the development of software for animal detection in a more complicated image environment.
 > This is the first test and possible base for using such a method for animal tracking in real time with more simple methods than YOLO etc.
 
+- writefile is not useful - it was used in the preprocessing to have ordered data.
+
 ## Instructions for user
 
 - Clone repo

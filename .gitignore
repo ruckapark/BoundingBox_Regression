@@ -7,6 +7,8 @@ __pycache__/
 TestSet/
 ValidationSet/
 train_good/
+train_bad/
+Radix_NNdata/
 
 # C extensions
 *.so
