@@ -22,21 +22,18 @@ def transform_bb(bb,shape = 128):
     return [x-(w//2),y-(h//2),w,h]
 
 #change directory to dataset
-dataset_dir = r'C:\Users\George\Documents\Python Scripts\DeepTest\train_bad\dataset'
+dataset_dir = r'C:\Users\George\Documents\Python Scripts\DeepTest\Radix_NNdata\ValidationSet'
 os.chdir(dataset_dir)
 root = os.getcwd()
 
-"""
-test_file = 'train0.jpg'
-test_bb = 'train0.txt'
+#files
+ind = np.random.randint(0,1000)
+test_file = 'data{}.jpg'.format(ind)
+test_bb = 'data{}.txt'.format(ind)
 
 #read image with cv2 - 0 grayscale
-test_im = cv2.imread('train0.jpg',0)
-"""
+test_im = cv2.imread('data{}.jpg'.format(ind),0)
 
-
-
-"""
 
 #read bounding box
 test_bb = np.loadtxt(test_bb)[1:-1]
@@ -48,12 +45,10 @@ cv2.imshow('test',test_im)
 #run code to x,y top left and w,h with 128 resolution
 bbs = []
 files = [f for f in os.listdir() if 'txt' in f]
-for file in files:
-    
-    bb = np.loadtxt(file)[1:5]
+for i in range(len(files)):
+    bb = np.loadtxt('data{}.txt'.format(i))[1:5]
     bb = transform_bb(bb)
     bbs.append(bb)
     
-bbs = np.array(bbs)
-
-"""
+bbs = pd.DataFrame(np.array(bbs,dtype = np.uint))
+bbs.to_csv(r'{}\bb.csv'.format(dataset_dir),header = False,index = False)
