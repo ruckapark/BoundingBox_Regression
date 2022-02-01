@@ -6,6 +6,7 @@ __pycache__/
 # Personal folders to ignore
 TestSet/
 ValidationSet/
+train_good/
 
 # C extensions
 *.so
